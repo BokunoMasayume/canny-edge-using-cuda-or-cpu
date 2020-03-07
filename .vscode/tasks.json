@@ -1,0 +1,114 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "test",
+            "type": "shell",
+            "command": "g++",
+            "args" : ["-g" , "-o" , "./bin/test" , "./test.cpp"],
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build canny",
+            "type": "shell",
+            "command": "nvcc",
+            "args" : ["-o","./bin/canny.exe" , "canny.cu"],
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "run canny(20 iterations)",
+            "type": "shell",
+            "command": "cd",
+            "args" : ["bin" , "&&canny.exe" ,"-it","20" , "-dst", "../data/gpuout1.bmp"  , "-src" , "../data/src5.bmp"],
+            "group":{
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "run canny with args(1 iterations)",
+            "type": "shell",
+            "command": "cd",
+            "args" : ["bin" , "&&canny.exe" ,"-it","1" , "-dst","../data/gpuout1.bmp","-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
+            "group":{
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "run canny with args(300 iterations)",
+            "type": "shell",
+            "command": "cd",
+            "args" : ["bin" , "&&canny.exe" ,"-it","300" , "-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1", "-dst", "../data/gpuout1.bmp"  ],
+            "group":{
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "print canny help",
+            "type": "shell",
+            "command": "cd",
+            "args" : ["bin" , "&&canny.exe" ,"-help"],
+            "group":{
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build cannyCpu",
+            "type": "shell",
+            "command": "g++",
+            "args" : ["-o" , "./bin/cannyCpu.exe" ,"cannyCpu.cpp"],
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "run cannyCpu with args(20 iterations)",
+            "type": "shell",
+            "command": "cd",
+            "args" : ["bin" , "&&cannyCpu.exe" ,"-it","20" , "-dst","../data/cpuout1.bmp","-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
+            "group":{
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "run cannyCpu with args(300 iterations)",
+            "type": "shell",
+            "command": "cd",
+            "args" : ["bin" , "&&cannyCpu.exe" ,"-it","300" , "-dst","../data/cpuout1.bmp","-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
+            "group":{
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "run cannyCpu with args(1 iterations)",
+            "type": "shell",
+            "command": "cd",
+            "args" : ["bin" , "&&cannyCpu.exe" ,"-it","1" , "-dst","../data/cpuout1.bmp","-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
+            "group":{
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+
+    ]
+}
+/*
+*after optimized
+*nvprof canny.exe -it 400 -opt 1
+*before optimized
+*nvprof canny.exe -it 400 -opt 0
+*/
