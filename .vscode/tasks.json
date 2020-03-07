@@ -27,7 +27,7 @@
             "label": "run canny(20 iterations)",
             "type": "shell",
             "command": "cd",
-            "args" : ["bin" , "&&canny.exe" ,"-it","20" , "-dst", "../data/gpuout1.bmp"  , "-src" , "../data/src5.bmp"],
+            "args" : ["bin;" , "./canny.exe" ,"-it","20" , "-dst", "../data/gpuout1.bmp"  , "-src" , "../data/src5.bmp"],
             "group":{
                 "kind": "test",
                 "isDefault": true
@@ -36,8 +36,8 @@
         {
             "label": "run canny with args(1 iterations)",
             "type": "shell",
-            "command": "cd",
-            "args" : ["bin" , "&&canny.exe" ,"-it","1" , "-dst","../data/gpuout1.bmp","-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
+            "command": "./bin./canny.exe",
+            "args" : [ "-it","1" , "-dst","./data/gpuout1.bmp","-src" ,"./data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
             "group":{
                 "kind": "test",
                 "isDefault": true
@@ -47,7 +47,7 @@
             "label": "run canny with args(300 iterations)",
             "type": "shell",
             "command": "cd",
-            "args" : ["bin" , "&&canny.exe" ,"-it","300" , "-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1", "-dst", "../data/gpuout1.bmp"  ],
+            "args" : ["./bin;" , "./canny.exe" ,"-it","300" , "-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1", "-dst", "../data/gpuout1.bmp"  ],
             "group":{
                 "kind": "test",
                 "isDefault": true
@@ -57,7 +57,7 @@
             "label": "print canny help",
             "type": "shell",
             "command": "cd",
-            "args" : ["bin" , "&&canny.exe" ,"-help"],
+            "args" : ["bin;" , "./canny.exe" ,"-help"],
             "group":{
                 "kind": "test",
                 "isDefault": true
@@ -77,7 +77,7 @@
             "label": "run cannyCpu with args(20 iterations)",
             "type": "shell",
             "command": "cd",
-            "args" : ["bin" , "&&cannyCpu.exe" ,"-it","20" , "-dst","../data/cpuout1.bmp","-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
+            "args" : ["bin;" , "./cannyCpu.exe" ,"-it","20" , "-dst","../data/cpuout1.bmp","-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
             "group":{
                 "kind": "test",
                 "isDefault": true
@@ -87,7 +87,7 @@
             "label": "run cannyCpu with args(300 iterations)",
             "type": "shell",
             "command": "cd",
-            "args" : ["bin" , "&&cannyCpu.exe" ,"-it","300" , "-dst","../data/cpuout1.bmp","-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
+            "args" : ["bin;" , "./cannyCpu.exe" ,"-it","300" , "-dst","../data/cpuout1.bmp","-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
             "group":{
                 "kind": "test",
                 "isDefault": true
@@ -97,7 +97,7 @@
             "label": "run cannyCpu with args(1 iterations)",
             "type": "shell",
             "command": "cd",
-            "args" : ["bin" , "&&cannyCpu.exe" ,"-it","1" , "-dst","../data/cpuout1.bmp","-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
+            "args" : ["bin;" , "./cannyCpu.exe" ,"-it","1" , "-dst","../data/cpuout1.bmp","-src" ,"../data/src5.bmp","-gs","1.2","-hs","0.14","-ls","0.08" , "-opt","1"],
             "group":{
                 "kind": "test",
                 "isDefault": true

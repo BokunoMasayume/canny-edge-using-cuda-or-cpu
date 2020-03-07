@@ -4,4 +4,4 @@
 ![](./data/out7.bmp)
 ![](./data/out6.bmp)
 
->ps: for windows, mspaint can convert pictures to .bmp format
+>ps: for windows, mspaint can convert pictures to .bmp format 
